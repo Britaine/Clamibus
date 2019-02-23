@@ -23,6 +23,18 @@ class Arret {
         return _nom
     }
     
+    func nomEtHoraires (sens: Bool,jour: Bool) -> String {
+        var texte: String = ""
+        var horaires: [Horaire]
+        
+        horaires = horaire(sens: sens,samedi: jour)
+        for h in horaires {
+            texte = texte + h.texte() + " "
+        }
+        texte = _nom + " : " + texte
+        return texte
+    }
+    
     func horaire (sens versGare: Bool, samedi: Bool) -> [Horaire] {
         if versGare {
             if samedi {

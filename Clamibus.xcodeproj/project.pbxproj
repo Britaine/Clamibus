@@ -10,6 +10,8 @@
 		8F1A76312219DAB50047D83E /* donneeshoraires.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A76302219DAB40047D83E /* donneeshoraires.swift */; };
 		8F1A76332219DF8C0047D83E /* classeArret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A76322219DF8C0047D83E /* classeArret.swift */; };
 		8F1A76352219E31D0047D83E /* classe Horaires.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A76342219E31D0047D83E /* classe Horaires.swift */; };
+		8F4BD2A2221F1B0600DD1C1B /* Clamibus1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8F4BD2A1221F1B0500DD1C1B /* Clamibus1.jpg */; };
+		8F4BD2A4221F1F7800DD1C1B /* ArretViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4BD2A3221F1F7800DD1C1B /* ArretViewCell.swift */; };
 		8F62FF5B2216415800578F72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F62FF5A2216415800578F72 /* AppDelegate.swift */; };
 		8F62FF622216415800578F72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F62FF602216415800578F72 /* Main.storyboard */; };
 		8F62FF642216415900578F72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F62FF632216415900578F72 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		8F1A76302219DAB40047D83E /* donneeshoraires.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = donneeshoraires.swift; sourceTree = "<group>"; };
 		8F1A76322219DF8C0047D83E /* classeArret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classeArret.swift; sourceTree = "<group>"; };
 		8F1A76342219E31D0047D83E /* classe Horaires.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "classe Horaires.swift"; sourceTree = "<group>"; };
+		8F4BD2A1221F1B0500DD1C1B /* Clamibus1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Clamibus1.jpg; path = "clamibus docs/Clamibus1.jpg"; sourceTree = SOURCE_ROOT; };
+		8F4BD2A3221F1F7800DD1C1B /* ArretViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArretViewCell.swift; sourceTree = "<group>"; };
 		8F62FF572216415800578F72 /* Clamibus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clamibus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F62FF5A2216415800578F72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F62FF612216415800578F72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 				8F62FF602216415800578F72 /* Main.storyboard */,
 				8F62FF652216415900578F72 /* LaunchScreen.storyboard */,
 				8F62FF632216415900578F72 /* Assets.xcassets */,
+				8F4BD2A1221F1B0500DD1C1B /* Clamibus1.jpg */,
 				8F62FF682216415900578F72 /* Info.plist */,
 			);
 			path = Clamibus;
@@ -87,6 +92,7 @@
 		8F69F6B8221B2A2F005DDE98 /* vues */ = {
 			isa = PBXGroup;
 			children = (
+				8F4BD2A3221F1F7800DD1C1B /* ArretViewCell.swift */,
 			);
 			path = vues;
 			sourceTree = "<group>";
@@ -159,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F62FF672216415900578F72 /* LaunchScreen.storyboard in Resources */,
+				8F4BD2A2221F1B0600DD1C1B /* Clamibus1.jpg in Resources */,
 				8F62FF642216415900578F72 /* Assets.xcassets in Resources */,
 				8F62FF622216415800578F72 /* Main.storyboard in Resources */,
 			);
@@ -171,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F4BD2A4221F1F7800DD1C1B /* ArretViewCell.swift in Sources */,
 				8F69F6BB221B2C5F005DDE98 /* ArretsTableViewController.swift in Sources */,
 				8F1A76332219DF8C0047D83E /* classeArret.swift in Sources */,
 				8F69F6BD221B2CAD005DDE98 /* CarteViewController.swift in Sources */,

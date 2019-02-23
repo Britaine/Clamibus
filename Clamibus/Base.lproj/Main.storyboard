@@ -25,6 +25,9 @@
                                     <constraint firstAttribute="width" constant="200" id="ehV-cJ-9xT"/>
                                 </constraints>
                                 <state key="normal" title="Sens"/>
+                                <connections>
+                                    <action selector="changeSens:" destination="9pv-A4-QxB" eventType="touchUpInside" id="mMr-u8-L5q"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRn-Sp-DRj">
                                 <rect key="frame" x="220" y="28" width="145" height="40"/>
@@ -32,14 +35,52 @@
                                     <constraint firstAttribute="height" constant="40" id="pi5-Gb-R10"/>
                                 </constraints>
                                 <state key="normal" title="jour"/>
+                                <connections>
+                                    <action selector="changeJour:" destination="9pv-A4-QxB" eventType="touchUpInside" id="r1K-Ch-F4t"/>
+                                </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dHV-tk-ev5">
+                                <rect key="frame" x="10" y="76" width="355" height="488"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Arret" id="AUb-H9-gV4" customClass="ArretViewCell" customModule="Clamibus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="355" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AUb-H9-gV4" id="y8G-7Z-e01">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1y-1O-jKR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="B1y-1O-jKR" secondAttribute="bottom" id="18a-di-DZ1"/>
+                                                <constraint firstItem="B1y-1O-jKR" firstAttribute="top" secondItem="y8G-7Z-e01" secondAttribute="top" id="gBA-hW-W9p"/>
+                                                <constraint firstItem="B1y-1O-jKR" firstAttribute="leading" secondItem="y8G-7Z-e01" secondAttribute="leading" id="vta-Xr-Tls"/>
+                                                <constraint firstAttribute="trailing" secondItem="B1y-1O-jKR" secondAttribute="trailing" id="zEy-h3-VIY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="AfficheArret" destination="B1y-1O-jKR" id="hxz-UW-jRt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LRn-Sp-DRj" firstAttribute="leading" secondItem="LQS-lp-ba5" secondAttribute="trailing" constant="10" id="5gA-hJ-Mf6"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="dHV-tk-ev5" secondAttribute="trailing" constant="10" id="T1t-eE-Uzu"/>
                             <constraint firstItem="LQS-lp-ba5" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="cYh-qM-woR"/>
                             <constraint firstItem="LQS-lp-ba5" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="eKg-nR-vSR"/>
+                            <constraint firstItem="dHV-tk-ev5" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="j2T-U2-IbF"/>
+                            <constraint firstItem="dHV-tk-ev5" firstAttribute="top" secondItem="LQS-lp-ba5" secondAttribute="bottom" constant="8" id="o03-vM-HB3"/>
                             <constraint firstItem="LRn-Sp-DRj" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="q4g-hA-gvo"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="dHV-tk-ev5" secondAttribute="bottom" constant="10" id="rdn-Fg-J7t"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="LRn-Sp-DRj" secondAttribute="trailing" constant="10" id="yAm-YF-mIb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
@@ -47,6 +88,11 @@
                     <tabBarItem key="tabBarItem" title="arrêts" image="list" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="boutonJour" destination="LRn-Sp-DRj" id="Mtk-EO-3zg"/>
+                        <outlet property="boutonSens" destination="LQS-lp-ba5" id="HLm-u8-PMl"/>
+                        <outlet property="tableView" destination="dHV-tk-ev5" id="EWo-q5-AcN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
