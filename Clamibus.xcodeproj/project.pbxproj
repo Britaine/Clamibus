@@ -18,6 +18,7 @@
 		8F62FF672216415900578F72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F62FF652216415900578F72 /* LaunchScreen.storyboard */; };
 		8F69F6BB221B2C5F005DDE98 /* ArretsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69F6BA221B2C5F005DDE98 /* ArretsTableViewController.swift */; };
 		8F69F6BD221B2CAD005DDE98 /* CarteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69F6BC221B2CAD005DDE98 /* CarteViewController.swift */; };
+		8FE2C00722240CC800D3EE26 /* InitTableArrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE2C00622240CC800D3EE26 /* InitTableArrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8F62FF682216415900578F72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F69F6BA221B2C5F005DDE98 /* ArretsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArretsTableViewController.swift; sourceTree = "<group>"; };
 		8F69F6BC221B2CAD005DDE98 /* CarteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarteViewController.swift; sourceTree = "<group>"; };
+		8FE2C00622240CC800D3EE26 /* InitTableArrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitTableArrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				8F69F6BA221B2C5F005DDE98 /* ArretsTableViewController.swift */,
 				8F69F6BC221B2CAD005DDE98 /* CarteViewController.swift */,
+				8FE2C00622240CC800D3EE26 /* InitTableArrets.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				8F1A76332219DF8C0047D83E /* classeArret.swift in Sources */,
 				8F69F6BD221B2CAD005DDE98 /* CarteViewController.swift in Sources */,
 				8F1A76312219DAB50047D83E /* donneeshoraires.swift in Sources */,
+				8FE2C00722240CC800D3EE26 /* InitTableArrets.swift in Sources */,
 				8F62FF5B2216415800578F72 /* AppDelegate.swift in Sources */,
 				8F1A76352219E31D0047D83E /* classe Horaires.swift in Sources */,
 			);

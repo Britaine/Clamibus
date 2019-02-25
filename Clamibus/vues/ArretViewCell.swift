@@ -13,6 +13,8 @@ class ArretViewCell: UITableViewCell {
     @IBOutlet weak var AfficheArret: UILabel!
 
     var arret : Arret!
+    var _versGare: Bool = false  // attention, doit être initialisée
+    var _samedi: Bool = false    // attention, doit être initialisée
 
     /*
     var arret : Arret? {
@@ -25,17 +27,17 @@ class ArretViewCell: UITableViewCell {
     }
  */
     
-    func setupCell(_ arret: Arret) {
-        self.arret = arret
-            //              AfficheArret.text = arret!.nom
-        AfficheArret.text = arret.nomEtHoraires(sens: sensVersGare,jour: samedi)
+    func setupCell(_ arret: Arret,sens: Bool, jour: Bool) {
+        _versGare = sens
+        _samedi = jour
+        AfficheArret.text = self.arret.nomEtHoraires(sens: _versGare, jour: _samedi)
     }   
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

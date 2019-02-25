@@ -11,13 +11,16 @@ import CoreLocation
 
 class Arret {
     
+    // si l'arret n'existe pas dans un sens, le tableau d'horaires restera vide
     private var _nom: String = ""
-    private var _horaireVersGareSamedi: [Horaire] = []
-    private var _horaireVersPetitClamartSamedi: [Horaire] = []
-    private var _horaireVersGareSemaine: [Horaire] = []
-    private var _horaireVersPetitClamartSemaine: [Horaire] = []
+    private var _arretVersGare: Bool           // vrai si l'arrêt existe dans ce sens
+    private var _arretVersPetitclamart: Bool   // vrai si l'arrêt existe dans ce sens
     private var _latitude: Double
     private var _longitude: Double
+    private var _horaireVersGareSemaine: [Horaire] = []
+    private var _horaireVersGareSamedi: [Horaire] = []
+    private var _horaireVersPetitClamartSemaine: [Horaire] = []
+    private var _horaireVersPetitClamartSamedi: [Horaire] = []
     
     var nom:String {
         return _nom
@@ -52,34 +55,24 @@ class Arret {
             }
         }
     }
-   /*
-    // a voir quelle fonction à utiliser
-    //
-    var horaireVersGare: [Horaire] {
-        return _horaireVersGare
-    }
-    
-    var horaireVersPetitClamart: [Horaire] {
-        return _horaireVersPetitClamart
-    }
-    //
- */
     
     var coordonnee: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: _latitude,longitude: _longitude)
     }
     
-    init (nom: String, latitude: Double, longitude: Double,
+    init (nom: String, arretVersGare: Bool, arretVersPetitclamart: Bool, latitude: Double, longitude: Double,
           horaireVersGareSemaine: [Horaire],
-          horaireVersPetitClamartSemaine : [Horaire],
           horaireVersGareSamedi: [Horaire],
+          horaireVersPetitClamartSemaine : [Horaire],
           horaireVersPetitClamartSamedi: [Horaire]) {
         _nom = nom
+        _arretVersGare = arretVersGare           // vrai si l'arrêt existe dans ce sens
+        _arretVersPetitclamart = arretVersPetitclamart // vrai si l'arrêt existe dans ce sens
         _latitude = latitude
         _longitude = longitude
         _horaireVersGareSemaine = horaireVersGareSemaine
-        _horaireVersPetitClamartSemaine = horaireVersPetitClamartSemaine
         _horaireVersGareSamedi = horaireVersGareSamedi
+        _horaireVersPetitClamartSemaine = horaireVersPetitClamartSemaine
         _horaireVersPetitClamartSamedi = horaireVersPetitClamartSamedi
     }
 }

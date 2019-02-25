@@ -8,59 +8,26 @@
 
 import UIKit
 
-var sensVersGare: Bool = true
-var samedi: Bool = false
-
 class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var boutonSens: UIButton!
     @IBOutlet weak var boutonJour: UIButton!
     
-//    var sensVersGare: Bool = true
-//    var samedi: Bool = false
+    private var _sensVersGare: Bool = false
+    private var _samedi: Bool = false
     var arrets: [Arret] = []
     var cellId = "Arret"
     
-    // pour voir les données
-    let test = true
-        
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateSens(versGare: sensVersGare)
-        updateJour(samedi: samedi)
-
-        arrets = ListeDesArrets().all()
         tableView.delegate = self
         tableView.dataSource = self
-
-        if test {
-            var horaireStr : String = ""
-            for arret in arrets {
-                print (arret.nom)
-                horaireStr = "Vers Gare en semaine"
-                for h in arret.horaire(sens: true,samedi: false) {
-                    horaireStr = horaireStr + " " + h.texte()
-                }
-                print ("  " + horaireStr)
-                horaireStr = "Vers petit clamart en semaine"
-                for h in arret.horaire(sens: false,samedi: false) {
-                    horaireStr = horaireStr + " " + h.texte()
-                }
-                print ("  " + horaireStr)
-                horaireStr = "Vers Gare le samedi"
-                for h in arret.horaire(sens: true,samedi: true) {
-                    horaireStr = horaireStr + " " + h.texte()
-                }
-                print ("  " + horaireStr)
-                horaireStr = "Vers petit clamart le samedi"
-                for h in arret.horaire(sens: false,samedi: true) {
-                    horaireStr = horaireStr + " " + h.texte()
-                }
-                print ("  " + horaireStr)
-            } //for Arrets
-        }  //test
-    }
+        updateSens(versGare: _sensVersGare)
+        updateJour(samedi: _samedi)
+        initTable()
+        //       tableView.reloadData()
+     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrets.count
@@ -69,22 +36,26 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let arret = arrets[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? ArretViewCell {
-            cell.setupCell(arret)
+            cell.setupCell(arret, sens: _sensVersGare, jour: _samedi)
             return cell
         }
         return UITableViewCell()
     }
     
     @IBAction func changeSens(_ sender: Any) {
-        sensVersGare = !sensVersGare
-        print (sensVersGare)
-        updateSens(versGare: sensVersGare)
+        _sensVersGare = !_sensVersGare
+        print (_sensVersGare)
+        updateSens(versGare: _sensVersGare)
+        initTable()
+        tableView.reloadData()
     }
     
     @IBAction func changeJour(_ sender: Any) {
-        samedi = !samedi
-        print (samedi)
-        updateJour(samedi: samedi)
+        _samedi = !_samedi
+        print (_samedi)
+        updateJour(samedi: _samedi)
+        initTable()
+        tableView.reloadData()
     }
     
     func updateSens(versGare: Bool) {
@@ -95,7 +66,6 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
             texte = "direction Petit Clamart"
         }
         boutonSens.setTitle(texte,for: .normal)
-        tableView.setNeedsDisplay()
     }
     
     func updateJour(samedi: Bool) {
@@ -106,9 +76,11 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
             texte = "Lundi-Vendredi"
         }
         boutonJour.setTitle(texte,for: .normal)
-        tableView.setNeedsDisplay()
     }
     
+    func initTable() {
+        if _sensVersGare {initTableVersGare(jour: _samedi)} else {initTableVersPetitClamart(jour: _samedi)}
+    }
 
     /*
     // MARK: - Navigation

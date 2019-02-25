@@ -8,14 +8,21 @@
 
 import UIKit
 
+var arretsGlobal: [Arret] = []
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        print("begin")
+        // initialisation totale des arrêts
+        // ordre de gare vers petit Clamart
+        // avec tous les horaires
+        arretsGlobal = ListeDesArrets().initAll() // initialisation totale des arrêts
+        printArrets(testarrets: arretsGlobal)
         return true
     }
 
@@ -44,3 +51,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+func printArrets(testarrets: [Arret])  {
+    
+    var horaireStr : String = ""
+    
+    for arret in testarrets {
+        print (arret.nom)
+        horaireStr = "Vers Gare en semaine"
+        for h in arret.horaire(sens: true,samedi: false) {
+            horaireStr = horaireStr + " " + h.texte()
+        }
+        print ("  " + horaireStr)
+        horaireStr = "Vers petit clamart en semaine"
+        for h in arret.horaire(sens: false,samedi: false) {
+            horaireStr = horaireStr + " " + h.texte()
+        }
+        print ("  " + horaireStr)
+        horaireStr = "Vers Gare le samedi"
+        for h in arret.horaire(sens: true,samedi: true) {
+            horaireStr = horaireStr + " " + h.texte()
+        }
+        print ("  " + horaireStr)
+        horaireStr = "Vers petit clamart le samedi"
+        for h in arret.horaire(sens: false,samedi: true) {
+            horaireStr = horaireStr + " " + h.texte()
+        }
+        print ("  " + horaireStr)
+    } //for Arrets
+}
