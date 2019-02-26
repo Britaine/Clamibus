@@ -79,7 +79,7 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func initTable() {
-        if _sensVersGare {initTableVersGare(jour: _samedi)} else {initTableVersPetitClamart(jour: _samedi)}
+        if _sensVersGare {initTableVersGare()} else {initTableVersPetitClamart()}
     }
 
     /*

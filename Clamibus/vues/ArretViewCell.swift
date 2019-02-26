@@ -30,7 +30,7 @@ class ArretViewCell: UITableViewCell {
     func setupCell(_ arret: Arret,sens: Bool, jour: Bool) {
         _versGare = sens
         _samedi = jour
-        AfficheArret.text = self.arret.nomEtHoraires(sens: _versGare, jour: _samedi)
+        AfficheArret.text = arret.nomEtHoraires(sens: _versGare, jour: _samedi)
     }   
     
     override func awakeFromNib() {

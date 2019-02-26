@@ -26,6 +26,14 @@ class Arret {
         return _nom
     }
     
+    var dessertVersPetitClamart:Bool {
+        return _arretVersPetitclamart
+    }
+    
+    var dessertVersGare:Bool {
+        return _arretVersGare
+    }
+    
     func nomEtHoraires (sens: Bool,jour: Bool) -> String {
         var texte: String = ""
         var horaires: [Horaire]
