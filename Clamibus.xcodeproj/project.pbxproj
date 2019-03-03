@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F0A60DB2228954B00E6F8B4 /* DetailArretControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A60DA2228954B00E6F8B4 /* DetailArretControllerViewController.swift */; };
 		8F1A76312219DAB50047D83E /* donneeshoraires.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A76302219DAB40047D83E /* donneeshoraires.swift */; };
 		8F1A76332219DF8C0047D83E /* classeArret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A76322219DF8C0047D83E /* classeArret.swift */; };
 		8F1A76352219E31D0047D83E /* classe Horaires.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A76342219E31D0047D83E /* classe Horaires.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F0A60DA2228954B00E6F8B4 /* DetailArretControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArretControllerViewController.swift; sourceTree = "<group>"; };
 		8F1A76302219DAB40047D83E /* donneeshoraires.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = donneeshoraires.swift; sourceTree = "<group>"; };
 		8F1A76322219DF8C0047D83E /* classeArret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classeArret.swift; sourceTree = "<group>"; };
 		8F1A76342219E31D0047D83E /* classe Horaires.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "classe Horaires.swift"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				8F69F6BA221B2C5F005DDE98 /* ArretsTableViewController.swift */,
 				8F69F6BC221B2CAD005DDE98 /* CarteViewController.swift */,
 				8FE2C00622240CC800D3EE26 /* InitTableArrets.swift */,
+				8F0A60DA2228954B00E6F8B4 /* DetailArretControllerViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				8F4BD2A4221F1F7800DD1C1B /* ArretViewCell.swift in Sources */,
 				8F69F6BB221B2C5F005DDE98 /* ArretsTableViewController.swift in Sources */,
+				8F0A60DB2228954B00E6F8B4 /* DetailArretControllerViewController.swift in Sources */,
 				8F1A76332219DF8C0047D83E /* classeArret.swift in Sources */,
 				8F69F6BD221B2CAD005DDE98 /* CarteViewController.swift in Sources */,
 				8F1A76312219DAB50047D83E /* donneeshoraires.swift in Sources */,

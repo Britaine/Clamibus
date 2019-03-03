@@ -46,6 +46,28 @@ class Arret {
         return texte
     }
     
+    func afficheHoraires (sens: Bool,jour: Bool) -> String {
+        var texte: String = ""
+        var horaires: [Horaire]
+        var exHeure: Int = 0
+        
+        horaires = horaire(sens: sens,samedi: jour)
+        for h in horaires {
+            if exHeure != 0 {
+                if h.heure != exHeure {texte = texte + "\n"}
+                else {texte = texte + "              "}
+                if h.heure - exHeure > 1 {
+                    texte = texte + "-------\n"
+                }
+            }
+            texte = texte + h.texte()
+            exHeure = h.heure
+        }
+        return texte
+    }
+    
+
+    
     func horaire (sens versGare: Bool, samedi: Bool) -> [Horaire] {
         if versGare {
             if samedi {
