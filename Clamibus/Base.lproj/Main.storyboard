@@ -18,29 +18,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQS-lp-ba5">
-                                <rect key="frame" x="40" y="72" width="160" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQS-lp-ba5" userLabel="Bouton Sens vers gare">
+                                <rect key="frame" x="45" y="112" width="185" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="F6Y-jX-jfg"/>
-                                    <constraint firstAttribute="width" constant="160" id="ehV-cJ-9xT"/>
+                                    <constraint firstAttribute="height" constant="30" id="F6Y-jX-jfg"/>
+                                    <constraint firstAttribute="width" constant="185" id="ehV-cJ-9xT"/>
                                 </constraints>
-                                <state key="normal" title="Sens"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <state key="normal" title="Vers la gare de clamart">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
-                                    <action selector="changeSens:" destination="9pv-A4-QxB" eventType="touchUpInside" id="mMr-u8-L5q"/>
+                                    <action selector="versGare:" destination="9pv-A4-QxB" eventType="touchUpInside" id="vmS-qQ-GJH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRn-Sp-DRj">
-                                <rect key="frame" x="210" y="72" width="155" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRn-Sp-DRj" userLabel="Bouton samedi">
+                                <rect key="frame" x="240" y="112" width="125" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="pi5-Gb-R10"/>
+                                    <constraint firstAttribute="height" constant="30" id="pi5-Gb-R10"/>
                                 </constraints>
-                                <state key="normal" title="jour"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <state key="normal" title="Le Samedi">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="changeJour:" destination="9pv-A4-QxB" eventType="touchUpInside" id="r1K-Ch-F4t"/>
+                                    <action selector="leSamedi:" destination="9pv-A4-QxB" eventType="touchUpInside" id="bjL-Hx-FLe"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dHV-tk-ev5">
-                                <rect key="frame" x="10" y="122" width="355" height="442"/>
+                                <rect key="frame" x="10" y="152" width="355" height="412"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="1" green="0.1327200711" blue="0.219537764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -71,43 +80,79 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckY-tU-Leg">
-                                <rect key="frame" x="8" y="72" width="20" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="aEG-8q-96L"/>
-                                    <constraint firstAttribute="width" constant="20" id="nKk-LQ-OIE"/>
-                                </constraints>
-                                <state key="normal" title="+"/>
-                                <connections>
-                                    <action selector="PlusGros:" destination="9pv-A4-QxB" eventType="touchUpInside" id="NwO-hM-P2z"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCg-Yn-7C0">
-                                <rect key="frame" x="8" y="95" width="20" height="15"/>
+                                <rect key="frame" x="10" y="72" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="99x-Vi-8lu"/>
-                                    <constraint firstAttribute="width" constant="20" id="pys-bC-flO"/>
+                                    <constraint firstAttribute="height" constant="30" id="99x-Vi-8lu"/>
+                                    <constraint firstAttribute="width" constant="30" id="pys-bC-flO"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="-"/>
                                 <connections>
                                     <action selector="PlusPetit:" destination="9pv-A4-QxB" eventType="touchUpInside" id="SBT-Fp-yVu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFx-2d-o6t">
+                                <rect key="frame" x="45" y="72" width="185" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="qBo-Pc-IaN"/>
+                                    <constraint firstAttribute="width" constant="185" id="rtV-q6-Uht"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <state key="normal" title="Vers le Petit Clamart">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="versPetitclamart:" destination="9pv-A4-QxB" eventType="touchUpInside" id="jar-ir-qjY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boQ-y2-C3m">
+                                <rect key="frame" x="240" y="72" width="125" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Pnd-Ns-RSR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <state key="normal" title="En Semaine">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="enSemaine:" destination="9pv-A4-QxB" eventType="touchUpInside" id="10o-u6-1Q2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckY-tU-Leg">
+                                <rect key="frame" x="10" y="112" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="aEG-8q-96L"/>
+                                    <constraint firstAttribute="width" constant="30" id="nKk-LQ-OIE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="PlusGros:" destination="9pv-A4-QxB" eventType="touchUpInside" id="NwO-hM-P2z"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LRn-Sp-DRj" firstAttribute="leading" secondItem="LQS-lp-ba5" secondAttribute="trailing" constant="10" id="5gA-hJ-Mf6"/>
-                            <constraint firstItem="PCg-Yn-7C0" firstAttribute="top" secondItem="ckY-tU-Leg" secondAttribute="bottom" constant="8" id="Jnh-3e-yTa"/>
+                            <constraint firstItem="ckY-tU-Leg" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="H6R-Gu-31m"/>
+                            <constraint firstItem="PCg-Yn-7C0" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="Jnh-3e-yTa"/>
+                            <constraint firstItem="bFx-2d-o6t" firstAttribute="leading" secondItem="PCg-Yn-7C0" secondAttribute="trailing" constant="5" id="LDY-ip-bnR"/>
+                            <constraint firstItem="LRn-Sp-DRj" firstAttribute="top" secondItem="boQ-y2-C3m" secondAttribute="bottom" constant="10" id="Pwi-9M-Y4X"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="dHV-tk-ev5" secondAttribute="trailing" constant="10" id="T1t-eE-Uzu"/>
-                            <constraint firstItem="ckY-tU-Leg" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="Y71-HF-mOI"/>
-                            <constraint firstItem="LQS-lp-ba5" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="cYh-qM-woR"/>
-                            <constraint firstItem="LQS-lp-ba5" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="40" id="eKg-nR-vSR"/>
+                            <constraint firstItem="bFx-2d-o6t" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="W09-V5-sq5"/>
+                            <constraint firstItem="ckY-tU-Leg" firstAttribute="top" secondItem="PCg-Yn-7C0" secondAttribute="bottom" constant="10" id="Y71-HF-mOI"/>
+                            <constraint firstItem="boQ-y2-C3m" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="cC2-rV-QN8"/>
+                            <constraint firstItem="LQS-lp-ba5" firstAttribute="top" secondItem="bFx-2d-o6t" secondAttribute="bottom" constant="10" id="dPs-3o-jcD"/>
+                            <constraint firstItem="LQS-lp-ba5" firstAttribute="leading" secondItem="ckY-tU-Leg" secondAttribute="trailing" constant="5" id="eKg-nR-vSR"/>
+                            <constraint firstItem="boQ-y2-C3m" firstAttribute="leading" secondItem="bFx-2d-o6t" secondAttribute="trailing" constant="10" id="iSi-2a-sza"/>
                             <constraint firstItem="dHV-tk-ev5" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="j2T-U2-IbF"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="boQ-y2-C3m" secondAttribute="trailing" constant="10" id="nB4-bp-FT3"/>
                             <constraint firstItem="dHV-tk-ev5" firstAttribute="top" secondItem="LRn-Sp-DRj" secondAttribute="bottom" constant="10" id="o03-vM-HB3"/>
-                            <constraint firstItem="ckY-tU-Leg" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="8" id="odW-0R-lu6"/>
-                            <constraint firstItem="LRn-Sp-DRj" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="q4g-hA-gvo"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="dHV-tk-ev5" secondAttribute="bottom" constant="10" id="rdn-Fg-J7t"/>
-                            <constraint firstItem="PCg-Yn-7C0" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="8" id="txy-9E-vcJ"/>
+                            <constraint firstItem="PCg-Yn-7C0" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="txy-9E-vcJ"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="LRn-Sp-DRj" secondAttribute="trailing" constant="10" id="yAm-YF-mIb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
@@ -116,9 +161,11 @@
                     <navigationItem key="navigationItem" id="Lth-2T-Evu"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="boutonJour" destination="LRn-Sp-DRj" id="Mtk-EO-3zg"/>
-                        <outlet property="boutonSens" destination="LQS-lp-ba5" id="HLm-u8-PMl"/>
+                        <outlet property="enSemaineButton" destination="boQ-y2-C3m" id="W17-pp-OVY"/>
+                        <outlet property="samediButton" destination="LRn-Sp-DRj" id="c8a-WW-we6"/>
                         <outlet property="tableView" destination="dHV-tk-ev5" id="EWo-q5-AcN"/>
+                        <outlet property="versGareButton" destination="LQS-lp-ba5" id="gMa-Ht-FPp"/>
+                        <outlet property="versPetitClamartButton" destination="bFx-2d-o6t" id="rmh-Ls-Rny"/>
                         <segue destination="5T3-IH-0Sd" kind="show" identifier="Detail" id="eiD-mD-h6d"/>
                     </connections>
                 </viewController>

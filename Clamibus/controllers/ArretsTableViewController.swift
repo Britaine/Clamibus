@@ -12,9 +12,15 @@ import UIKit
 class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var boutonSens: UIButton!
-    @IBOutlet weak var boutonJour: UIButton!
+//    @IBOutlet weak var boutonSens: UIButton!
+//    @IBOutlet weak var boutonJour: UIButton!
 //    @IBOutlet weak var celluleView: UILabel!
+    
+    @IBOutlet weak var versPetitClamartButton: UIButton!
+    @IBOutlet weak var versGareButton: UIButton!
+    @IBOutlet weak var enSemaineButton: UIButton!
+    @IBOutlet weak var samediButton: UIButton!
+    
     
     private var _sensVersGare: Bool = false
     private var _samedi: Bool = false
@@ -24,13 +30,27 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     let segueID = "Detail"
     
     override func viewDidLoad() {
+//        let monCalendrier = Calendar(identifier : .gregorian)
+        let monCalendrier = Calendar.autoupdatingCurrent
+        let date = Date(timeIntervalSinceNow: 0)
+        let aujourdhui = monCalendrier.component(.weekday, from: date)
+//        print(monCalendrier.weekdaySymbols[aujourdhui-monCalendrier.firstWeekday])
+//        print(monCalendrier.weekdaySymbols[0])
+        if aujourdhui == 7 {_samedi = true}
+        if aujourdhui == 5 {
+            print("on est dimanche")
+            alerteDimanche()
+        }
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        updateSens(versGare: _sensVersGare)
-        updateJour(samedi: _samedi)
+        if _sensVersGare {updateSensVersGare()} else {updateSensVersPetitClamart()}
+        if _samedi {updateSamedi()} else {updateSemaine()}
         initTable()
-        //       tableView.reloadData()
+//        versPetitClamartButton.layer.cornerRadius = 20
+//        versGareButton.layer.cornerRadius = 20
+//        enSemaineButton.layer.cornerRadius = 20
+//        samediButton.layer.cornerRadius = 20
      }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,6 +66,82 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         return UITableViewCell()
     }
     
+    @IBAction func versPetitclamart(_ sender: Any) {
+        if !_sensVersGare {return}
+        _sensVersGare = false
+        initTable()
+        tableView.reloadData()
+        updateSensVersPetitClamart()
+    }
+    
+    @IBAction func versGare(_ sender: Any) {
+        if _sensVersGare {return}
+        _sensVersGare = true
+        initTable()
+        tableView.reloadData()
+        updateSensVersGare()
+    }
+    
+    @IBAction func enSemaine(_ sender: Any) {
+        if !_samedi {return}
+        _samedi = false
+        print ("Semaine")
+        tableView.reloadData()
+        updateSemaine()
+    }
+    
+    @IBAction func leSamedi(_ sender: Any) {
+        if _samedi {return}
+        _samedi = true
+        print ("Samedi")
+        tableView.reloadData()
+        updateSamedi()
+    }
+    
+    func updateSensVersGare() {
+//        versPetitClamartButton.backgroundColor = .white
+//        versGareButton.backgroundColor = .green
+//        versPetitClamartButton.setTitleColor(UIColor.lightGray, for: .normal)
+//        versGareButton.setTitleColor(UIColor.black, for: .normal)
+        versPetitClamartButton.isEnabled = true
+        versPetitClamartButton.isSelected = false
+        versGareButton.isEnabled = false
+        versGareButton.isSelected = true
+    }
+    
+    func updateSensVersPetitClamart() {
+//        versPetitClamartButton.backgroundColor = .green
+//        versGareButton.backgroundColor = .white
+//        versPetitClamartButton.setTitleColor(UIColor.black, for: .normal)
+//        versGareButton.setTitleColor(UIColor.lightGray, for: .normal)
+        versPetitClamartButton.isEnabled = false
+        versPetitClamartButton.isSelected = true
+        versGareButton.isEnabled = true
+        versGareButton.isSelected = false
+    }
+    
+    func updateSamedi() {
+//        samediButton.backgroundColor = .green
+//        enSemaineButton.backgroundColor = .white
+//        samediButton.setTitleColor(UIColor.black, for: .normal)
+//        enSemaineButton.setTitleColor(UIColor.lightGray, for: .normal)
+        samediButton.isEnabled = false
+        samediButton.isSelected = true
+        enSemaineButton.isEnabled = true
+        enSemaineButton.isSelected = false
+    }
+    func updateSemaine() {
+//        samediButton.backgroundColor = .white
+//        enSemaineButton.backgroundColor = .green
+//        enSemaineButton.setTitleColor(UIColor.black, for: .normal)
+//        samediButton.setTitleColor(UIColor.lightGray, for: .normal)
+        enSemaineButton.isEnabled = false
+        enSemaineButton.isSelected = true
+        samediButton.isEnabled = true
+        samediButton.isSelected = false
+    }
+    
+    /*
     @IBAction func changeSens(_ sender: Any) {
         _sensVersGare = !_sensVersGare
         print (_sensVersGare)
@@ -53,6 +149,7 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         initTable()
         tableView.reloadData()
     }
+ 
     
     @IBAction func changeJour(_ sender: Any) {
         _samedi = !_samedi
@@ -61,27 +158,17 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         initTable()
         tableView.reloadData()
     }
-    
-    func updateSens(versGare: Bool) {
-        var texte : String = ""
-        if versGare {
-            texte = "direction gare"
-        } else {
-            texte = "direction Petit Clamart"
-        }
-        boutonSens.setTitle(texte,for: .normal)
-    }
-    
+
     func updateJour(samedi: Bool) {
         var texte : String = ""
         if samedi {
-            texte = "Samedi"
+            texte = "Le Samedi"
         } else {
-            texte = "Lundi-Vendredi"
+            texte = "En semaine"
         }
         boutonJour.setTitle(texte,for: .normal)
     }
-    
+ */
     func initTable() {
         if _sensVersGare {initTableVersGare()} else {initTableVersPetitClamart()}
     }
@@ -98,26 +185,13 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
 
-    /*
-    @IBAction func PlusGros(_ sender: Any) {
-   //     var police : UIFont
-        
-        var aView : UIView
-        
-        aView = tableView.subviews[0]
-   //     police = celluleView.font
-        
-    }
-    */
-    
     @IBAction func PlusPetit(_ sender: Any) {
         
         var taille = _tailleTexte
         taille -= 1
-        if  taille < 10 {return}
+        if  taille < 14 {return}
         _tailleTexte = taille
         print ("Plus Petit" + String(Int(_tailleTexte)))
-//        initTable()
         tableView.reloadData()
     }
     
@@ -125,10 +199,17 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         var taille = _tailleTexte
         taille += 1
-        if  taille > 40 {return}
+        if  taille > 35 {return}
         _tailleTexte = taille
         print ("Plus Gros" + String(Int(_tailleTexte)))
-//        initTable()
         tableView.reloadData()
+    }
+    
+    func alerteDimanche() {
+        
+        let alert = UIAlertController(title: "Il n'y a pas de Clamibus le dimanche)", message: "", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        present(alert, animated: true,completion: nil)
     }
 }

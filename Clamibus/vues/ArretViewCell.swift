@@ -15,19 +15,8 @@ class ArretViewCell: UITableViewCell {
     var arret : Arret!
     var _versGare: Bool = false  // attention, doit être initialisée
     var _samedi: Bool = false    // attention, doit être initialisée
-    var _taille : CGFloat = 0   // utile ?
-    
-    /*
-    var arret : Arret? {
-        didSet {
-            if arret != nil {
-  //              AfficheArret.text = arret!.nom
-                AfficheArret.text = arret!.nomEtHoraires(sens: sensVersGare,jour: samedi)
-            }
-        }
-    }
- */
-    
+    var _taille : CGFloat = 0    // attention, doit être initialisée
+       
     func setupCell(_ arret: Arret,sens: Bool, jour: Bool, taille: CGFloat) {
         
         var monFont : UIFont
@@ -39,7 +28,6 @@ class ArretViewCell: UITableViewCell {
         monFont = AfficheArret.font
         monFont = monFont.withSize(_taille)
         AfficheArret.font = monFont
-//        AfficheArret.setTaille
     }
     
     override func awakeFromNib() {
