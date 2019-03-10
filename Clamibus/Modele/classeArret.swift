@@ -34,17 +34,53 @@ class Arret {
         return _arretVersGare
     }
     
-    func nomEtHoraires (sens: Bool,jour: Bool) -> String {
-        var texte: String = ""
+    func purTexteHoraires (sens: Bool,jour: Bool) -> String {
+        var texte : String = ""
         var horaires: [Horaire]
         
         horaires = horaire(sens: sens,samedi: jour)
         for h in horaires {
-            texte = texte + h.texte() + " "
+            texte = texte + (h.texte() + " ")
         }
-        texte = _nom + " : " + texte
         return texte
     }
+    
+/*
+ 
+    func nomEtHoraires (sens: Bool,jour: Bool) -> NSAttributedString {
+        var texte : NSAttributedString
+        var horaires: [Horaire]
+        var aFont : UIFont
+        var attributes = [NSAttributedString.Key : Any]()
+        
+        aFont = UIFont.boldSystemFont(ofSize: 0)  // keep standard size, but could define your own
+        attributes[NSAttributedString.Key.font] = aFont
+        texte = NSAttributedString(string: _nom, attributes: attributes)
+        
+        
+        horaires = horaire(sens: sens,samedi: jour)
+        //        for h in horaires {
+        //            texte = texte + NSAttributedString(string:h.texte()) + NSAttributedString(string: " ")
+        //        }
+        //        texte = _nom + " : " + texte
+        //        texte = NSAttributedString(string: _nom)
+        
+        
+        //            aFont = UIFont.systemFont(ofSize: 0)
+        
+        
+        
+        
+        //        public func NSRangeFromString(_ aString: String) -> NSRange
+        //        open func setAttributes(_ attrs: [NSAttributedString.Key : Any]?, range: NSRange)
+        //        texte.addAttribute(NSAttributedString.font, value: afont, range: NSRangeFromString(_nom))
+        
+        //        static let font: NSAttributedString.Key
+        
+        return texte
+    }
+
+ */
     
     func afficheHoraires (sens: Bool,jour: Bool) -> String {
         var texte: String = ""
