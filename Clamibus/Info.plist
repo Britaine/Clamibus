@@ -42,6 +42,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Vous situer par rapport aux arrêts du Clamibus</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Vous situer par rapport aux arrêts du Clamibus</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

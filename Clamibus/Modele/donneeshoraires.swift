@@ -76,8 +76,8 @@ class ListeDesArrets {
             nom: "Gare de Clamart",
             arretVersGare: true,
             arretVersPetitclamart: true,
-            latitude: 0,
-            longitude: 0,
+            latitude: 48.8142,
+            longitude: 2.27449,
             horaireVersGareSemaine: horairesVersGareSemaine,
             horaireVersGareSamedi: horairesVersGareSamedi,
             horaireVersPetitClamartSemaine: horairesVersPetitClamartSemaine,
@@ -809,8 +809,8 @@ class ListeDesArrets {
             nom: "Rue du Parc",
             arretVersGare: true,
             arretVersPetitclamart: true,
-            latitude:  0,
-            longitude:  0,
+            latitude: 48.7922,
+            longitude: 2.2555,
             horaireVersGareSemaine: horairesVersGareSemaine,
             horaireVersGareSamedi: horairesVersGareSamedi,
             horaireVersPetitClamartSemaine: horairesVersPetitClamartSemaine,
@@ -979,7 +979,7 @@ class ListeDesArrets {
         )
         
         arrets.append(Arret(
-            nom: "Maison de quartier du Petit Clamart",
+            nom: "Maison de Quartier du Petit Clamart",
             arretVersGare: true,
             arretVersPetitclamart: true,
             latitude:  0,
@@ -1018,7 +1018,7 @@ class ListeDesArrets {
         )
         
         arrets.append(Arret(
-            nom: "Maison de quartier-andré Charre",
+            nom: "Maison de Quartier-André Charré",
             arretVersGare: true,
             arretVersPetitclamart: true,
             latitude:  0,

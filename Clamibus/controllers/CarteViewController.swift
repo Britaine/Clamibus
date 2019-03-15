@@ -7,24 +7,67 @@
 //
 
 import UIKit
+import MapKit
 
-class CarteViewController: UIViewController {
+class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+
+    @IBOutlet weak var mapView: MKMapView!
+    var locationManager = CLLocationManager()
+    var userPosition: CLLocation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        addAnnotations()
+//        position à fixer
+        if arretsGlobal.count > 0 {
+            let premiere = arretsGlobal[0].coordonnee
+            SetupMap(coordonnees: premiere)
+        }
+    }
 
-        // Do any additional setup after loading the view.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if locations.count > 0 {
+            if let maPosition = locations.last {
+                userPosition = maPosition
+            }
+        }
+    }
+
+    @IBAction func modeCarte(_ sender: UISegmentedControl)
+    {
+        switch sender.selectedSegmentIndex {
+            case 0 : mapView.mapType = MKMapType.standard
+            case 1 : mapView.mapType = .satellite
+            case 2 : mapView.mapType = .hybrid
+            default: break
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func SetupMap(coordonnees: CLLocationCoordinate2D) {
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: coordonnees, span: span)
+        mapView.setRegion(region, animated: true)
     }
-    */
+
+    @IBAction func getPosition(_ sender: Any) {
+        if userPosition != nil {
+            SetupMap(coordonnees: userPosition!.coordinate)
+            print(userPosition!.coordinate)
+        }
+    }
+
+    func addAnnotations() {
+        for arret in arretsGlobal {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = arret.coordonnee
+            annotation.title = arret.nom
+            mapView.addAnnotation(annotation)
+        }
+    }
 
 }

@@ -23,6 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // avec tous les horaires
         arretsGlobal = ListeDesArrets().initAll() // initialisation totale des arrêts
         printArrets(testarrets: arretsGlobal)
+/*
+        var j : Double
+        var k : Double
+        for i in 0...1000000 {
+            j = Double(i) * Double(i)
+            k = j/2
+            j = k/2
+            print(j)
+        }
+*/
         return true
     }
 
