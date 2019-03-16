@@ -32,6 +32,9 @@ class ArretViewCell: UITableViewCell {
         
         attributes[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: taille)
         attribTexte.append(NSAttributedString(string: strHoraires, attributes: attributes))
+
+        attributes[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: taille/2)
+        attribTexte.append(NSAttributedString(string: "\n", attributes: attributes))
         
         AfficheArret.attributedText! = attribTexte
     }

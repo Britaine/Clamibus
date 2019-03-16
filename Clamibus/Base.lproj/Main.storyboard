@@ -23,7 +23,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="F6Y-jX-jfg"/>
-                                    <constraint firstAttribute="width" constant="185" id="ehV-cJ-9xT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <state key="normal" title="Vers la gare de clamart">
@@ -96,8 +95,8 @@
                                 <rect key="frame" x="45" y="72" width="185" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="185" id="7Z1-VS-bRI"/>
                                     <constraint firstAttribute="height" constant="30" id="qBo-Pc-IaN"/>
-                                    <constraint firstAttribute="width" constant="185" id="rtV-q6-Uht"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <state key="normal" title="Vers le Petit Clamart">
@@ -112,6 +111,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Pnd-Ns-RSR"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="Xhj-kh-PVy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <state key="normal" title="En Semaine">
@@ -141,6 +141,7 @@
                             <constraint firstItem="PCg-Yn-7C0" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="Jnh-3e-yTa"/>
                             <constraint firstItem="bFx-2d-o6t" firstAttribute="leading" secondItem="PCg-Yn-7C0" secondAttribute="trailing" constant="5" id="LDY-ip-bnR"/>
                             <constraint firstItem="LRn-Sp-DRj" firstAttribute="top" secondItem="boQ-y2-C3m" secondAttribute="bottom" constant="10" id="Pwi-9M-Y4X"/>
+                            <constraint firstItem="boQ-y2-C3m" firstAttribute="leading" secondItem="LRn-Sp-DRj" secondAttribute="leading" id="QpL-Jf-G8i"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="dHV-tk-ev5" secondAttribute="trailing" constant="10" id="T1t-eE-Uzu"/>
                             <constraint firstItem="bFx-2d-o6t" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="W09-V5-sq5"/>
                             <constraint firstItem="ckY-tU-Leg" firstAttribute="top" secondItem="PCg-Yn-7C0" secondAttribute="bottom" constant="10" id="Y71-HF-mOI"/>
@@ -234,9 +235,6 @@ Gare</string>
                             </mapView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aw9-Oh-gLj">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="4c5-h8-3fV"/>
-                                </constraints>
                                 <items>
                                     <navigationItem id="JFK-5Z-F0u">
                                         <nil key="title"/>

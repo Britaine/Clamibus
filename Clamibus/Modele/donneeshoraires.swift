@@ -6,6 +6,10 @@
 //  Copyright © 2019 Pierre Crespi. All rights reserved.
 //
 
+// maison
+// latitude: 48.79341073297543
+// longitude: 2.255434240375387
+
 import UIKit
 
 class ListeDesArrets {
@@ -541,6 +545,40 @@ class ListeDesArrets {
             )
         )
         
+        horairesVersGareSemaine = []
+        horairesVersPetitClamartSemaine = []
+        
+        horairesVersGareSamedi = []
+        horairesVersGareSamedi.append(Horaire(heure: 8, minute: 32))
+        horairesVersGareSamedi.append(Horaire(heure: 9, minute: 09))
+        horairesVersGareSamedi.append(Horaire(heure: 9, minute: 54))
+        horairesVersGareSamedi.append(Horaire(heure: 10, minute: 39))
+        horairesVersGareSamedi.append(Horaire(heure: 11, minute: 24))
+        horairesVersGareSamedi.append(Horaire(heure: 12, minute: 09))
+        horairesVersGareSamedi.append(Horaire(heure: 12, minute: 54))
+        horairesVersGareSamedi.append(Horaire(heure: 13, minute: 39))
+        horairesVersGareSamedi.append(Horaire(heure: 14, minute: 24))
+        horairesVersGareSamedi.append(Horaire(heure: 15, minute: 09))
+        horairesVersGareSamedi.append(Horaire(heure: 15, minute: 54))
+        horairesVersGareSamedi.append(Horaire(heure: 16, minute: 39))
+        horairesVersGareSamedi.append(Horaire(heure: 17, minute: 24))
+
+        horairesVersPetitClamartSamedi = []
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 8, minute: 59))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 9, minute: 44))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 10, minute: 29))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 11, minute: 14))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 11, minute: 59))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 12, minute: 44))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 13, minute: 29))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 14, minute: 14))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 14, minute: 59))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 15, minute: 44))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 16, minute: 29))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 17, minute: 14))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 17, minute: 59))
+        
+
         arrets.append(Arret(
             nom: "Place Hunebelle",
             arretVersGare: true,
@@ -554,19 +592,42 @@ class ListeDesArrets {
             )
         )
         
+        horairesVersPetitClamartSemaine = []
+        
+        horairesVersPetitClamartSamedi = []
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 9, minute: 00))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 9, minute: 45))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 10, minute: 30))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 11, minute: 15))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 12, minute: 00))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 12, minute: 45))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 13, minute: 30))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 14, minute: 15))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 15, minute: 00))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 15, minute: 45))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 16, minute: 30))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 17, minute: 15))
+        horairesVersPetitClamartSamedi.append(Horaire(heure: 18, minute: 00))
+        
+
         arrets.append(Arret(
             nom: "Mairie de Clamart",
-            arretVersGare: true,
+            arretVersGare: false,
             arretVersPetitclamart: true,
-            latitude:  0,
-            longitude:  0,
-            horaireVersGareSemaine: horairesVersGareSemaine,
-            horaireVersGareSamedi: horairesVersGareSamedi,
+            latitude: 48.79933,
+            longitude: 2.26279,
+            horaireVersGareSemaine: [],
+            horaireVersGareSamedi: [],
             horaireVersPetitClamartSemaine: horairesVersPetitClamartSemaine,
             horaireVersPetitClamartSamedi: horairesVersPetitClamartSamedi
             )
         )
-        
+        print(arrets.count)
+        horairesVersGareSemaine = []
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSamedi = []
+        horairesVersGareSamedi = []
+
         arrets.append(Arret(
             nom: "rue de Bièvres",
             arretVersGare: false,
@@ -809,8 +870,8 @@ class ListeDesArrets {
             nom: "Rue du Parc",
             arretVersGare: true,
             arretVersPetitclamart: true,
-            latitude: 48.7922,
-            longitude: 2.2555,
+            latitude: 48.79222,
+            longitude: 2.25556,
             horaireVersGareSemaine: horairesVersGareSemaine,
             horaireVersGareSamedi: horairesVersGareSamedi,
             horaireVersPetitClamartSemaine: horairesVersPetitClamartSemaine,
@@ -827,8 +888,10 @@ class ListeDesArrets {
             nom: "Jardin Parisien-hôpital Antoine Béclère",
             arretVersGare: true,
             arretVersPetitclamart: true,
-            latitude:  0,
-            longitude:  0,
+//            latitude: 48.7912,
+//            longitude: 2.2559,
+            latitude: 48.7899,
+            longitude: 2.2533,
             horaireVersGareSemaine: horairesVersGareSemaine,
             horaireVersGareSamedi: horairesVersGareSamedi,
             horaireVersPetitClamartSemaine: horairesVersPetitClamartSemaine,

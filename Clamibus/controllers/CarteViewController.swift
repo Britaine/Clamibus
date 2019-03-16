@@ -24,9 +24,10 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         locationManager.startUpdatingLocation()
         addAnnotations()
 //        position à fixer
-        if arretsGlobal.count > 0 {
-            let premiere = arretsGlobal[0].coordonnee
+        if arretsGlobal.count > 16 {
+            let premiere = arretsGlobal[16].coordonnee
             SetupMap(coordonnees: premiere)
+            print(premiere)
         }
     }
 
@@ -49,7 +50,7 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     func SetupMap(coordonnees: CLLocationCoordinate2D) {
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegion(center: coordonnees, span: span)
         mapView.setRegion(region, animated: true)
     }

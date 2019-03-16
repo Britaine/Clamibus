@@ -30,7 +30,7 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     let segueID = "Detail"
     
     override func viewDidLoad() {
-        timerFunc ()
+//        timerFunc ()
 //        let monCalendrier = Calendar(identifier : .gregorian)
         let monCalendrier = Calendar.autoupdatingCurrent
         let date = Date(timeIntervalSinceNow: 0)
@@ -213,7 +213,7 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         alert.addAction(ok)
         present(alert, animated: true,completion: nil)
     }
-    
+/*
     func timerFunc () {
         var timer = Timer()
 
@@ -222,5 +222,5 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         })
         
     }
-
+*/
 }
