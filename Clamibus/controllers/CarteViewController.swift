@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
@@ -23,6 +23,7 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         addAnnotations()
+        addMapClicked()
 //        position à fixer
         if arretsGlobal.count > 16 {
             let premiere = arretsGlobal[16].coordonnee
@@ -70,5 +71,18 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             mapView.addAnnotation(annotation)
         }
     }
-
+    
+    func addMapClicked() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(pin(sender:)))
+        tap.numberOfTapsRequired = 1
+        tap.delegate = self
+        mapView.addGestureRecognizer(tap)
+    }
+    
+    @objc func pin(sender: UITapGestureRecognizer) {
+        print("CLICK on map")
+        let touchPoint = sender.location(in: mapView)
+        let touchCoordonnees = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        print(touchCoordonnees)
+    }
 }

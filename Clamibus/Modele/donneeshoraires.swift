@@ -120,8 +120,10 @@ class ListeDesArrets {
             nom: "Albert Chanot",
             arretVersGare: false,
             arretVersPetitclamart: true,
-            latitude:  0,
-            longitude:  0,
+//            latitude: 48.8142,
+//            longitude: 2.27449,
+            latitude: 48.81260,
+            longitude: 2.26625,
             horaireVersGareSemaine: [],
             horaireVersGareSamedi: [],
             horaireVersPetitClamartSemaine: horairesVersPetitClamartSemaine,
@@ -217,8 +219,8 @@ class ListeDesArrets {
             nom: "Gymnase Condorcet",
             arretVersGare: true,
             arretVersPetitclamart: true,
-            latitude:  0,
-            longitude:  0,
+            latitude:  48.81151800489212,
+            longitude:  2.2638582739521156,
             horaireVersGareSemaine: horairesVersGareSemaine,
             horaireVersGareSamedi: horairesVersGareSamedi,
             horaireVersPetitClamartSemaine: horairesVersPetitClamartSemaine,
@@ -286,8 +288,8 @@ class ListeDesArrets {
             nom: "Pont d'amour, hôpital Percy",
             arretVersGare: true,
             arretVersPetitclamart: true,
-            latitude:  0,
-            longitude:  0,
+            latitude:  48.81264523938543,
+            longitude:  2.2584359698170813,
             horaireVersGareSemaine: horairesVersGareSemaine,
             horaireVersGareSamedi: horairesVersGareSamedi,
             horaireVersPetitClamartSemaine: horairesVersPetitClamartSemaine,
@@ -354,8 +356,8 @@ class ListeDesArrets {
             nom: "Fleury",
             arretVersGare: true,
             arretVersPetitclamart: true,
-            latitude:  0,
-            longitude:  0,
+            latitude:  48.81082266035088,
+            longitude:  2.2573873818431824,
             horaireVersGareSemaine: horairesVersGareSemaine,
             horaireVersGareSamedi: horairesVersGareSamedi,
             horaireVersPetitClamartSemaine: horairesVersPetitClamartSemaine,
@@ -506,6 +508,18 @@ class ListeDesArrets {
             )
         )
         
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 8, minute: 56))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 41))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 26))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 11, minute: 11))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 11))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 56))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 41))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 26))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 11))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 56))
+
         arrets.append(Arret(
             nom: "Trosy",
             arretVersGare: true,
@@ -519,6 +533,19 @@ class ListeDesArrets {
             )
         )
         
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 8, minute: 57))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 42))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 27))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 11, minute: 12))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 12))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 57))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 42))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 27))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 12))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 57))
+        
+
         arrets.append(Arret(
             nom: "Marché de Clamart",
             arretVersGare: false,
@@ -532,6 +559,19 @@ class ListeDesArrets {
             )
         )
         
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 8, minute: 58))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 43))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 28))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 11, minute: 13))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 13))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 58))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 43))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 28))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 13))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 58))
+        
+
         arrets.append(Arret(
             nom: "Mairie de Clamart",
             arretVersGare: false,
@@ -546,7 +586,6 @@ class ListeDesArrets {
         )
         
         horairesVersGareSemaine = []
-        horairesVersPetitClamartSemaine = []
         
         horairesVersGareSamedi = []
         horairesVersGareSamedi.append(Horaire(heure: 8, minute: 32))
@@ -563,6 +602,18 @@ class ListeDesArrets {
         horairesVersGareSamedi.append(Horaire(heure: 16, minute: 39))
         horairesVersGareSamedi.append(Horaire(heure: 17, minute: 24))
 
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 8, minute: 59))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 44))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 29))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 11, minute: 14))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 14))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 59))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 44))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 29))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 14))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 59))
+        
         horairesVersPetitClamartSamedi = []
         horairesVersPetitClamartSamedi.append(Horaire(heure: 8, minute: 59))
         horairesVersPetitClamartSamedi.append(Horaire(heure: 9, minute: 44))
@@ -593,6 +644,16 @@ class ListeDesArrets {
         )
         
         horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 00))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 45))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 30))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 11, minute: 15))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 15))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 00))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 45))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 30))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 15))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 18, minute: 00))
         
         horairesVersPetitClamartSamedi = []
         horairesVersPetitClamartSamedi.append(Horaire(heure: 9, minute: 00))
@@ -609,7 +670,6 @@ class ListeDesArrets {
         horairesVersPetitClamartSamedi.append(Horaire(heure: 17, minute: 15))
         horairesVersPetitClamartSamedi.append(Horaire(heure: 18, minute: 00))
         
-
         arrets.append(Arret(
             nom: "Mairie de Clamart",
             arretVersGare: false,
@@ -622,11 +682,24 @@ class ListeDesArrets {
             horaireVersPetitClamartSamedi: horairesVersPetitClamartSamedi
             )
         )
-        print(arrets.count)
+        
+//        print(arrets.count)
+        
         horairesVersGareSemaine = []
-        horairesVersPetitClamartSemaine = []
         horairesVersPetitClamartSamedi = []
         horairesVersGareSamedi = []
+        
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 01))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 46))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 31))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 11, minute: 16))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 16))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 01))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 46))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 31))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 16))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 18, minute: 01))
 
         arrets.append(Arret(
             nom: "rue de Bièvres",
@@ -641,6 +714,18 @@ class ListeDesArrets {
             )
         )
         
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 02))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 47))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 32))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 11, minute: 17))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 17))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 02))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 47))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 32))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 17))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 18, minute: 02))
+
         arrets.append(Arret(
             nom: "Plessis-Piquet",
             arretVersGare: false,
@@ -653,6 +738,18 @@ class ListeDesArrets {
             horaireVersPetitClamartSamedi: horairesVersPetitClamartSamedi
             )
         )
+        
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 03))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 48))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 33))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 11, minute: 18))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 18))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 03))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 48))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 33))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 18))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 18, minute: 03))
         
         arrets.append(Arret(
             nom: "Pierre Corby-Fontenay",
@@ -667,6 +764,18 @@ class ListeDesArrets {
             )
         )
         
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 04))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 49))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 34))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 11, minute: 19))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 19))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 04))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 49))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 34))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 19))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 18, minute: 04))
+
         arrets.append(Arret(
             nom: "Rue de Fontenay",
             arretVersGare: false,
@@ -679,7 +788,19 @@ class ListeDesArrets {
             horaireVersPetitClamartSamedi: horairesVersPetitClamartSamedi
             )
         )
-        
+
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 05))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 50))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 35))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 11, minute: 20))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 20))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 05))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 50))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 35))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 20))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 18, minute: 05))
+
         arrets.append(Arret(
             nom: "Gymnase du fort",
             arretVersGare: false,
@@ -745,6 +866,18 @@ class ListeDesArrets {
             )
         )
         
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 8, minute: 27))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 06))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 51))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 36))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 13, minute: 42))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 21))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 06))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 51))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 36))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 21))
+
         arrets.append(Arret(
             nom: "Lycée Monod",
             arretVersGare: true,
@@ -758,6 +891,18 @@ class ListeDesArrets {
             )
         )
         
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 8, minute: 28))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 07))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 52))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 37))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 13, minute: 43))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 22))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 07))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 52))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 37))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 22))
+
         arrets.append(Arret(
             nom: "Cimetierre communal",
             arretVersGare: true,
@@ -771,6 +916,18 @@ class ListeDesArrets {
             )
         )
         
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 8, minute: 29))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 08))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 53))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 38))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 13, minute: 44))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 23))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 08))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 53))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 38))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 23))
+
         arrets.append(Arret(
             nom: "Cimetierre de Clamart",
             arretVersGare: false,
@@ -784,6 +941,18 @@ class ListeDesArrets {
             )
         )
         
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 8, minute: 30))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 09))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 54))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 39))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 13, minute: 45))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 24))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 09))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 54))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 39))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 24))
+
         arrets.append(Arret(
             nom: "Soleil levant",
             arretVersGare: true,
@@ -797,6 +966,18 @@ class ListeDesArrets {
             )
         )
         
+        horairesVersPetitClamartSemaine = []
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 8, minute: 32))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 11))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 9, minute: 56))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 10, minute: 41))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 13, minute: 47))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 14, minute: 26))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 11))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 15, minute: 56))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 16, minute: 41))
+        horairesVersPetitClamartSemaine.append(Horaire(heure: 17, minute: 26))
+
         arrets.append(Arret(
             nom: "Gymnase du Jardin Parisien",
             arretVersGare: true,
