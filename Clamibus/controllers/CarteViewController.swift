@@ -56,6 +56,29 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         mapView.setRegion(region, animated: true)
     }
 
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseIdentifier = "reuseID"
+        // verifier que ce ne soit pas la position de l'utilisateur
+        if annotation.isKind(of: MKUserLocation.self) { return nil }
+        
+        if let anno = annotation as? MonAnnotation {
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "reuseID")
+            if annotationView == nil {
+                
+                // override
+                annotationView = MonAnnotationView(controller: self, annotation: anno, reuseIdentifier: reuseIdentifier)
+                
+                // annotationView = MKAnnotationView(annotation: anno, reuseIdentifier: reuseIdentifier)
+                // annotationView?.image = UIImage(named: "placeholder")
+                // annotationView?.canShowCallout = true
+                return annotationView
+            } else {
+                return annotationView
+            }
+        }
+        return nil
+    }
+
     @IBAction func getPosition(_ sender: Any) {
         if userPosition != nil {
             SetupMap(coordonnees: userPosition!.coordinate)
@@ -65,10 +88,16 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     func addAnnotations() {
         for arret in arretsGlobal {
+            let annotation = MonAnnotation(arret)
+            mapView.addAnnotation(annotation)
+
+            
+            /*
             let annotation = MKPointAnnotation()
             annotation.coordinate = arret.coordonnee
             annotation.title = arret.nom
             mapView.addAnnotation(annotation)
+            */
         }
     }
     

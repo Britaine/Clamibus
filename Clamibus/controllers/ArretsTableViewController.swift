@@ -34,11 +34,12 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
 //        let monCalendrier = Calendar(identifier : .gregorian)
         let monCalendrier = Calendar.autoupdatingCurrent
         let date = Date(timeIntervalSinceNow: 0)
-        let aujourdhui = monCalendrier.component(.weekday, from: date)
-//        print(monCalendrier.weekdaySymbols[aujourdhui-monCalendrier.firstWeekday])
+        let aujourdhui = monCalendrier.component(.weekday, from: date) - 1
+        print (monCalendrier.weekdaySymbols[aujourdhui])
 //        print(monCalendrier.weekdaySymbols[0])
+        
         if aujourdhui == 7 {_samedi = true}
-        if aujourdhui == 5 {
+        if aujourdhui == 0 {
             print("on est dimanche")
             alerteDimanche()
         }
