@@ -17,7 +17,7 @@ class DetailArretController: UIViewController {
     @IBOutlet weak var titre: UILabel!
     
     @IBOutlet weak var textHoraires: UITextView!
-    
+        
     override func viewDidLoad() {
         
         var texte = ""
@@ -35,5 +35,4 @@ class DetailArretController: UIViewController {
         titre.text = texte
         textHoraires.text = arret.afficheHoraires (sens: sensVersGare, jour: samedi)
     }
-    
 }

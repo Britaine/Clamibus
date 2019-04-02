@@ -36,6 +36,11 @@ class ArretViewCell: UITableViewCell {
         attributes[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: taille/2)
         attribTexte.append(NSAttributedString(string: "\n", attributes: attributes))
         
+        if arret.isArretPrefere() {
+            let range = NSRange(location: 0, length: attribTexte.length)
+            attribTexte.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: range)
+//            attributes[NSAttributedString.Key.foregroundColor] = UIColor.red
+        }
         AfficheArret.attributedText! = attribTexte
     }
     

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -205,8 +205,8 @@ Gare</string>
                         <constraints>
                             <constraint firstItem="O5M-0D-iFy" firstAttribute="leading" secondItem="Igm-Us-dsx" secondAttribute="leading" constant="10" id="Bhb-do-05K"/>
                             <constraint firstItem="Igm-Us-dsx" firstAttribute="trailing" secondItem="Hwq-Dc-CbN" secondAttribute="trailing" constant="10" id="Epe-rj-jFg"/>
-                            <constraint firstItem="Igm-Us-dsx" firstAttribute="bottom" secondItem="Hwq-Dc-CbN" secondAttribute="bottom" constant="10" id="Pnm-pL-ui3"/>
                             <constraint firstItem="Hwq-Dc-CbN" firstAttribute="top" secondItem="O5M-0D-iFy" secondAttribute="bottom" constant="20" id="Tgn-wM-f9w"/>
+                            <constraint firstItem="Igm-Us-dsx" firstAttribute="bottom" secondItem="Hwq-Dc-CbN" secondAttribute="bottom" constant="10" id="Y5F-xm-KAq"/>
                             <constraint firstItem="O5M-0D-iFy" firstAttribute="top" secondItem="Igm-Us-dsx" secondAttribute="top" constant="10" id="g4n-QD-Ja2"/>
                             <constraint firstItem="Igm-Us-dsx" firstAttribute="trailing" secondItem="O5M-0D-iFy" secondAttribute="trailing" constant="10" id="ngv-Ux-0Yc"/>
                             <constraint firstItem="Hwq-Dc-CbN" firstAttribute="leading" secondItem="Igm-Us-dsx" secondAttribute="leading" constant="80" id="vO1-Zb-Nqf"/>
@@ -239,7 +239,7 @@ Gare</string>
                                     <navigationItem id="JFK-5Z-F0u">
                                         <nil key="title"/>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Mx0-LQ-GJf">
-                                            <rect key="frame" x="30" y="7.5" width="280" height="29"/>
+                                            <rect key="frame" x="46" y="7.5" width="280" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="standard"/>
@@ -279,7 +279,7 @@ Gare</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+            <point key="canvasLocation" x="750" y="359"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -320,8 +320,8 @@ Gare</string>
         </scene>
     </scenes>
     <resources>
-        <image name="earth" width="25.600000381469727" height="25.600000381469727"/>
-        <image name="list" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="earth" width="32" height="32"/>
+        <image name="list" width="32" height="32"/>
         <image name="placeholder" width="32" height="32"/>
     </resources>
 </document>

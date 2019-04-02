@@ -12,15 +12,10 @@ import UIKit
 class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-//    @IBOutlet weak var boutonSens: UIButton!
-//    @IBOutlet weak var boutonJour: UIButton!
-//    @IBOutlet weak var celluleView: UILabel!
-    
     @IBOutlet weak var versPetitClamartButton: UIButton!
     @IBOutlet weak var versGareButton: UIButton!
     @IBOutlet weak var enSemaineButton: UIButton!
     @IBOutlet weak var samediButton: UIButton!
-    
     
     private var _sensVersGare: Bool = false
     private var _samedi: Bool = false
@@ -31,28 +26,31 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
 //        timerFunc ()
-//        let monCalendrier = Calendar(identifier : .gregorian)
-        let monCalendrier = Calendar.autoupdatingCurrent
-        let date = Date(timeIntervalSinceNow: 0)
+        _tailleTexte = CGFloat(UserDefaults.standard.integer(forKey: "TailleFont"))
+        arretPrefere = UserDefaults.standard.string(forKey: "Prefere") ?? ""
+        let monCalendrier = Calendar.current
+        let date = Date()                    // maintenant
+// pour debug
+        let dateformatter = DateFormatter()
+        dateformatter.dateStyle = DateFormatter.Style.full
+        dateformatter.timeStyle = .none
+        dateformatter.locale = Locale(identifier: "fr_FR")
+        print(dateformatter.string(from: date))
+// fin debug
         let aujourdhui = monCalendrier.component(.weekday, from: date) - 1
-        print (monCalendrier.weekdaySymbols[aujourdhui])
-//        print(monCalendrier.weekdaySymbols[0])
-        
-        if aujourdhui == 7 {_samedi = true}
+        if aujourdhui == 6 {_samedi = true}
         if aujourdhui == 0 {
             print("on est dimanche")
             alerteDimanche()
         }
+        print(aujourdhui)
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         if _sensVersGare {updateSensVersGare()} else {updateSensVersPetitClamart()}
         if _samedi {updateSamedi()} else {updateSemaine()}
         initTable()
-//        versPetitClamartButton.layer.cornerRadius = 20
-//        versGareButton.layer.cornerRadius = 20
-//        enSemaineButton.layer.cornerRadius = 20
-//        samediButton.layer.cornerRadius = 20
+        addTapGestures()
      }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -101,10 +99,6 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func updateSensVersGare() {
-//        versPetitClamartButton.backgroundColor = .white
-//        versGareButton.backgroundColor = .green
-//        versPetitClamartButton.setTitleColor(UIColor.lightGray, for: .normal)
-//        versGareButton.setTitleColor(UIColor.black, for: .normal)
         versPetitClamartButton.isEnabled = true
         versPetitClamartButton.isSelected = false
         versGareButton.isEnabled = false
@@ -112,10 +106,6 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func updateSensVersPetitClamart() {
-//        versPetitClamartButton.backgroundColor = .green
-//        versGareButton.backgroundColor = .white
-//        versPetitClamartButton.setTitleColor(UIColor.black, for: .normal)
-//        versGareButton.setTitleColor(UIColor.lightGray, for: .normal)
         versPetitClamartButton.isEnabled = false
         versPetitClamartButton.isSelected = true
         versGareButton.isEnabled = true
@@ -123,61 +113,84 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func updateSamedi() {
-//        samediButton.backgroundColor = .green
-//        enSemaineButton.backgroundColor = .white
-//        samediButton.setTitleColor(UIColor.black, for: .normal)
-//        enSemaineButton.setTitleColor(UIColor.lightGray, for: .normal)
         samediButton.isEnabled = false
         samediButton.isSelected = true
         enSemaineButton.isEnabled = true
         enSemaineButton.isSelected = false
     }
     func updateSemaine() {
-//        samediButton.backgroundColor = .white
-//        enSemaineButton.backgroundColor = .green
-//        enSemaineButton.setTitleColor(UIColor.black, for: .normal)
-//        samediButton.setTitleColor(UIColor.lightGray, for: .normal)
         enSemaineButton.isEnabled = false
         enSemaineButton.isSelected = true
         samediButton.isEnabled = true
         samediButton.isSelected = false
     }
     
-    /*
-    @IBAction func changeSens(_ sender: Any) {
-        _sensVersGare = !_sensVersGare
-        print (_sensVersGare)
-        updateSens(versGare: _sensVersGare)
-        initTable()
-        tableView.reloadData()
-    }
- 
-    
-    @IBAction func changeJour(_ sender: Any) {
-        _samedi = !_samedi
-        print (_samedi)
-        updateJour(samedi: _samedi)
-        initTable()
-        tableView.reloadData()
-    }
-
-    func updateJour(samedi: Bool) {
-        var texte : String = ""
-        if samedi {
-            texte = "Le Samedi"
-        } else {
-            texte = "En semaine"
-        }
-        boutonJour.setTitle(texte,for: .normal)
-    }
- */
     func initTable() {
         if _sensVersGare {initTableVersGare()} else {initTableVersPetitClamart()}
     }
 
+    @objc func singleTap(sender: UITapGestureRecognizer) {
+        print ("single tap")
+        let tapLocationPoint = sender.location(in: tableView)
+        let tappedCellIndexPath = tableView.indexPathForRow(at: tapLocationPoint)
+        performSegue(withIdentifier: segueID, sender: arrets[tappedCellIndexPath!.row])
+    }
+    
+    @objc func doubleTap(sender: UITapGestureRecognizer) {
+        var titre = ""
+        var annulePrefere : Bool
+        
+        print ("double tap")
+        let tapLocationPoint = sender.location(in: tableView)
+        let tappedCellIndexPath = tableView.indexPathForRow(at: tapLocationPoint)
+        let arret = arrets[tappedCellIndexPath!.row]
+        if arret.isArretPrefere() {
+            annulePrefere = true
+            titre = "Voulez-vous que l'arrêt \(arret.nom) ne soit plus votre arrêt préféré ?"
+        } else {
+            annulePrefere = false
+            titre = "Voulez vous choisir l'arret \(arret.nom) comme arrêt préféré ?"
+            if arretPrefere != "" {
+                titre += "\nIl remplacera \(arretPrefere)"
+            }
+        }
+        let alert = UIAlertController(title: titre, message: "", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Oui", style: .default, handler: { action in
+            self.changeprefered(arret: arret, supprime: annulePrefere)})
+        let cancel = UIAlertAction(title: "Annuler", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        present(alert, animated: true,completion: nil)
+    }
+    
+    func changeprefered(arret: Arret, supprime: Bool) {
+        if supprime {
+            arretPrefere = ""
+        } else {
+            arretPrefere = arret.nom
+        }
+        SaveUserDefaults()
+        tableView.reloadData()
+    }
+
+    func addTapGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(singleTap))
+        tapGesture.numberOfTapsRequired = 1
+        tableView.addGestureRecognizer(tapGesture)
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTap))
+        doubleTapGesture.numberOfTapsRequired = 2
+        tableView.addGestureRecognizer(doubleTapGesture)
+        
+        tapGesture.require(toFail: doubleTapGesture)
+    }
+    
+/*
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: segueID, sender: arrets[indexPath.row])
+        print ("retour")
     }
+*/
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueID, let vc = segue.destination as? DetailArretController {
@@ -193,6 +206,7 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         taille -= 1
         if  taille < 14 {return}
         _tailleTexte = taille
+        SaveUserDefaults()
         print ("Plus Petit" + String(Int(_tailleTexte)))
         tableView.reloadData()
     }
@@ -203,8 +217,15 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         taille += 1
         if  taille > 35 {return}
         _tailleTexte = taille
+        SaveUserDefaults()
         print ("Plus Gros" + String(Int(_tailleTexte)))
         tableView.reloadData()
+    }
+
+    func SaveUserDefaults() {
+        UserDefaults.standard.set(Int(_tailleTexte), forKey: "TailleFont")
+        UserDefaults.standard.set(arretPrefere, forKey: "Prefere")
+        UserDefaults.standard.synchronize()
     }
     
     func alerteDimanche() {

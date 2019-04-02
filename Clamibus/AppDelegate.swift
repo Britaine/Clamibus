@@ -9,6 +9,7 @@
 import UIKit
 
 var arretsGlobal: [Arret] = []
+var arretPrefere : String = ""
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

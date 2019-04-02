@@ -45,6 +45,10 @@ class Arret {
         return texte
     }
     
+    func isArretPrefere() -> Bool {
+        return (_nom == arretPrefere)
+    }
+    
 /*
  
     func nomEtHoraires (sens: Bool,jour: Bool) -> NSAttributedString {
