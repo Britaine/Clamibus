@@ -8,6 +8,28 @@
 
 import UIKit
 
+class Parametres {
+    var versGare: Bool
+    var samedi: Bool
+    var expanded: Bool
+    var tailleTexte : CGFloat
+    
+    init() {
+        versGare = false
+        samedi = false
+        expanded = false
+        tailleTexte = 0
+    }
+    
+    init(versGare: Bool,samedi: Bool,taille: CGFloat, expanded: Bool) {
+        self.versGare = versGare
+        self.samedi = samedi
+        self.expanded = expanded
+        self.tailleTexte = taille
+    }
+}
+
+
 var arretsGlobal: [Arret] = []
 var arretPrefere : String = ""
 

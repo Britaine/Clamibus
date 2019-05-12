@@ -11,22 +11,32 @@ import UIKit
 
 class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let tailleMini: CGFloat = 14
+    let tailleMaxi: CGFloat = 35
+    let tailleDefaut: CGFloat = 22
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var versPetitClamartButton: UIButton!
     @IBOutlet weak var versGareButton: UIButton!
     @IBOutlet weak var enSemaineButton: UIButton!
     @IBOutlet weak var samediButton: UIButton!
     
-    private var _sensVersGare: Bool = false
-    private var _samedi: Bool = false
-    private var _tailleTexte: CGFloat = 22
+    var _gParametres = Parametres()
+
+//    private var _sensVersGare: Bool = false
+//    private var _samedi: Bool = false
+//    private var _tailleTexte: CGFloat = 0
+//    private var _expanded: Bool = false
+    
     var arrets: [Arret] = []
     var cellId = "Arret"
     let segueID = "Detail"
     
     override func viewDidLoad() {
 //        timerFunc ()
-        _tailleTexte = CGFloat(UserDefaults.standard.integer(forKey: "TailleFont"))
+        _gParametres.tailleTexte = CGFloat(UserDefaults.standard.integer(forKey: "TailleFont"))
+        if _gParametres.tailleTexte < tailleMini {_gParametres.tailleTexte = tailleDefaut}
+        if _gParametres.tailleTexte > tailleMaxi {_gParametres.tailleTexte = tailleDefaut}
         arretPrefere = UserDefaults.standard.string(forKey: "Prefere") ?? ""
         let monCalendrier = Calendar.current
         let date = Date()                    // maintenant
@@ -38,7 +48,7 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         print(dateformatter.string(from: date))
 // fin debug
         let aujourdhui = monCalendrier.component(.weekday, from: date) - 1
-        if aujourdhui == 6 {_samedi = true}
+        if aujourdhui == 6 {_gParametres.samedi = true}
         if aujourdhui == 0 {
             print("on est dimanche")
             alerteDimanche()
@@ -47,8 +57,8 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        if _sensVersGare {updateSensVersGare()} else {updateSensVersPetitClamart()}
-        if _samedi {updateSamedi()} else {updateSemaine()}
+        if _gParametres.versGare {updateSensVersGare()} else {updateSensVersPetitClamart()}
+        if _gParametres.samedi {updateSamedi()} else {updateSemaine()}
         initTable()
         addTapGestures()
      }
@@ -60,39 +70,40 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let arret = arrets[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? ArretViewCell {
-            cell.setupCell(arret, sens: _sensVersGare, jour: _samedi,taille: _tailleTexte)
+            cell.setupCell(arret: arret, parametres: _gParametres)
+//            cell.setupCell(arret, sens: _sensVersGare, jour: _samedi,taille: _tailleTexte)
             return cell
         }
         return UITableViewCell()
     }
     
     @IBAction func versPetitclamart(_ sender: Any) {
-        if !_sensVersGare {return}
-        _sensVersGare = false
+        if !_gParametres.versGare {return}
+        _gParametres.versGare = false
         initTable()
         tableView.reloadData()
         updateSensVersPetitClamart()
     }
     
     @IBAction func versGare(_ sender: Any) {
-        if _sensVersGare {return}
-        _sensVersGare = true
+        if _gParametres.versGare {return}
+        _gParametres.versGare = true
         initTable()
         tableView.reloadData()
         updateSensVersGare()
     }
     
     @IBAction func enSemaine(_ sender: Any) {
-        if !_samedi {return}
-        _samedi = false
+        if !_gParametres.samedi {return}
+        _gParametres.samedi = false
         print ("Semaine")
         tableView.reloadData()
         updateSemaine()
     }
     
     @IBAction func leSamedi(_ sender: Any) {
-        if _samedi {return}
-        _samedi = true
+        if _gParametres.samedi {return}
+        _gParametres.samedi = true
         print ("Samedi")
         tableView.reloadData()
         updateSamedi()
@@ -126,7 +137,7 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func initTable() {
-        if _sensVersGare {initTableVersGare()} else {initTableVersPetitClamart()}
+        if _gParametres.versGare {initTableVersGare()} else {initTableVersPetitClamart()}
     }
 
     @objc func singleTap(sender: UITapGestureRecognizer) {
@@ -173,6 +184,27 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.reloadData()
     }
 
+    @objc func pinchIt(sender: UIPinchGestureRecognizer) {
+        
+        guard sender.view != nil else { return }
+        if sender.state == .ended {
+            print("FIN  !!!! ----------")
+            print("Scale")
+            print(sender.scale)
+            if sender.scale < 0.95 && _gParametres.expanded {
+                _gParametres.expanded = false
+                print("not expanded")
+                tableView.reloadData()
+            } else if sender.scale > 1.05 && !_gParametres.expanded{
+                _gParametres.expanded = true
+                print("expanded")
+                tableView.reloadData()
+            } else {
+                print("no Move")
+            }
+        }
+    }
+
     func addTapGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(singleTap))
         tapGesture.numberOfTapsRequired = 1
@@ -183,6 +215,10 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.addGestureRecognizer(doubleTapGesture)
         
         tapGesture.require(toFail: doubleTapGesture)
+        
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchIt))
+        tableView.addGestureRecognizer(pinchGesture)
+
     }
     
 /*
@@ -195,35 +231,35 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueID, let vc = segue.destination as? DetailArretController {
             vc.arretRecu = sender as? Arret
-            vc.sensVersGare = _sensVersGare
-            vc.samedi = _samedi
+            vc.sensVersGare = _gParametres.versGare
+            vc.samedi = _gParametres.samedi
         }
     }
 
     @IBAction func PlusPetit(_ sender: Any) {
         
-        var taille = _tailleTexte
+        var taille = _gParametres.tailleTexte
         taille -= 1
-        if  taille < 14 {return}
-        _tailleTexte = taille
+        if  taille < tailleMini {return}
+        _gParametres.tailleTexte = taille
         SaveUserDefaults()
-        print ("Plus Petit" + String(Int(_tailleTexte)))
+        print ("Plus Petit" + String(Int(_gParametres.tailleTexte)))
         tableView.reloadData()
     }
-    
+
     @IBAction func PlusGros(_ sender: Any) {
         
-        var taille = _tailleTexte
+        var taille = _gParametres.tailleTexte
         taille += 1
-        if  taille > 35 {return}
-        _tailleTexte = taille
+        if  taille > tailleMaxi {return}
+        _gParametres.tailleTexte = taille
         SaveUserDefaults()
-        print ("Plus Gros" + String(Int(_tailleTexte)))
+        print ("Plus Gros" + String(Int(_gParametres.tailleTexte)))
         tableView.reloadData()
     }
 
     func SaveUserDefaults() {
-        UserDefaults.standard.set(Int(_tailleTexte), forKey: "TailleFont")
+        UserDefaults.standard.set(Int(_gParametres.tailleTexte), forKey: "TailleFont")
         UserDefaults.standard.set(arretPrefere, forKey: "Prefere")
         UserDefaults.standard.synchronize()
     }

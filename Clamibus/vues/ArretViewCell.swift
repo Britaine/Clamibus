@@ -13,34 +13,39 @@ class ArretViewCell: UITableViewCell {
     @IBOutlet weak var AfficheArret: UILabel!
 
     var arret : Arret!
-    var _versGare: Bool = false  // attention, doit être initialisée
-    var _samedi: Bool = false    // attention, doit être initialisée
-    var _taille : CGFloat = 0    // attention, doit être initialisée
-    
-    func setupCell(_ arret: Arret,sens: Bool, jour: Bool, taille: CGFloat) {
+//    var _parametres = Parametres()
+
+    func setupCell(arret: Arret, parametres: Parametres) {
+//        func setupCell(_ arret: Arret,sens: Bool, jour: Bool, taille: CGFloat) {
        
         var attributes = [NSAttributedString.Key : Any]()
+        var strNom = ""
+        var strHoraires = ""
 
-        _versGare = sens
-        _samedi = jour
-        _taille = taille
-        let strNom = arret.nom + " : "
-        let strHoraires = arret.purTexteHoraires(sens: _versGare, jour: _samedi)
+//        _parametres = parametres
+        if parametres.expanded {
+            strNom = arret.nom + " : "
+            strHoraires = arret.purTexteHoraires(sens: parametres.versGare, jour: parametres.samedi)
+        } else {
+            strNom = arret.nom
+        }
         
-        attributes[NSAttributedString.Key.font] = UIFont.boldSystemFont(ofSize: taille)
+        attributes[NSAttributedString.Key.font] = UIFont.boldSystemFont(ofSize: parametres.tailleTexte)
         let attribTexte = NSMutableAttributedString(string: strNom, attributes: attributes)
         
-        attributes[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: taille)
-        attribTexte.append(NSAttributedString(string: strHoraires, attributes: attributes))
-
-        attributes[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: taille/2)
-        attribTexte.append(NSAttributedString(string: "\n", attributes: attributes))
+        if parametres.expanded {
+            attributes[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: parametres.tailleTexte)
+            attribTexte.append(NSAttributedString(string: strHoraires, attributes: attributes))
         
+            attributes[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: parametres.tailleTexte/2)
+            attribTexte.append(NSAttributedString(string: "\n", attributes: attributes))
+        }
+
         if arret.isArretPrefere() {
             let range = NSRange(location: 0, length: attribTexte.length)
             attribTexte.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: range)
-//            attributes[NSAttributedString.Key.foregroundColor] = UIColor.red
-        }
+            }
+        
         AfficheArret.attributedText! = attribTexte
     }
     

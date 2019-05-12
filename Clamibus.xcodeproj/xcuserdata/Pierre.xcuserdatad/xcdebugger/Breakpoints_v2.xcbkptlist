@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Clamibus/AppDelegate.swift"
-            timestampString = "575856429.7086951"
+            timestampString = "579313367.9110039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "init(versGare:samedi:taille:expanded:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Clamibus/controllers/ArretsTableViewController.swift"
-            timestampString = "575856429.709121"
+            timestampString = "579313367.911095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "ArretsTableViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Clamibus/controllers/ArretsTableViewController.swift"
-            timestampString = "575856429.709484"
+            timestampString = "579313367.911152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "singleTap(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Clamibus/controllers/ArretsTableViewController.swift"
-            timestampString = "575856429.709774"
+            timestampString = "579313367.9112051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "doubleTap(sender:)"
             landmarkType = "7">
          </BreakpointContent>
