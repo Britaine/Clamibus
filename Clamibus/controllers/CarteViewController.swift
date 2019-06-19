@@ -14,6 +14,7 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     var userPosition: CLLocation?
+    var premiere = CLLocationCoordinate2D()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +25,21 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         locationManager.startUpdatingLocation()
         addAnnotations()
         addMapClicked()
-//        position à fixer
-        if arretsGlobal.count > 16 {
-            let premiere = arretsGlobal[16].coordonnee
-            SetupMap(coordonnees: premiere)
-            print(premiere)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+//        position fixée par defaut à 0 pour gare de Clamart (à corriger peut-etre)
+        if let arret = gArretSelected {
+            premiere = arret.coordonnee
+//            print("setup Map" + arret.nom)
+        } else {
+            premiere = gArrets[0].coordonnee
+//            print("setup Map par defaut")
         }
+        SetupMap(coordonnees: premiere)
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -82,22 +92,14 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     @IBAction func getPosition(_ sender: Any) {
         if userPosition != nil {
             SetupMap(coordonnees: userPosition!.coordinate)
-            print(userPosition!.coordinate)
+//            print(userPosition!.coordinate)
         }
     }
 
     func addAnnotations() {
-        for arret in arretsGlobal {
+        for arret in gArrets {
             let annotation = MonAnnotation(arret)
             mapView.addAnnotation(annotation)
-
-            
-            /*
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = arret.coordonnee
-            annotation.title = arret.nom
-            mapView.addAnnotation(annotation)
-            */
         }
     }
     
@@ -109,9 +111,11 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     @objc func pin(sender: UITapGestureRecognizer) {
+/*
         print("CLICK on map")
         let touchPoint = sender.location(in: mapView)
         let touchCoordonnees = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         print(touchCoordonnees)
+*/
     }
 }

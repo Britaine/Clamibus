@@ -14,9 +14,9 @@ extension ArretsTableViewController {
         var arret: Arret
         print("init vers gare ")
         arrets = []
-        var i = arretsGlobal.count-1
+        var i = gArrets.count-1
         while i>=0 {
-            arret=arretsGlobal[i]
+            arret=gArrets[i]
             if arret.dessertVersGare {arrets.append(arret)}
             i-=1
         }
@@ -26,7 +26,7 @@ extension ArretsTableViewController {
         
         print("init vers Petit Clamart ")
         arrets = []
-        for arret in arretsGlobal {
+        for arret in gArrets {
             if arret.dessertVersPetitClamart {arrets.append(arret)}
         }
     }

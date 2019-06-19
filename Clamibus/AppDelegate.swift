@@ -8,6 +8,13 @@
 
 import UIKit
 
+// Variables globales
+var gArrets: [Arret] = []
+var gArretPrefere : String = ""
+var gArretSelected : Arret? = nil
+//
+
+// une classe pour regrouper les parametres de l'appli
 class Parametres {
     var versGare: Bool
     var samedi: Bool
@@ -29,10 +36,6 @@ class Parametres {
     }
 }
 
-
-var arretsGlobal: [Arret] = []
-var arretPrefere : String = ""
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -40,12 +43,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        print("begin")
+//        print("begin")
         // initialisation totale des arrêts
         // ordre de gare vers petit Clamart
         // avec tous les horaires
-        arretsGlobal = ListeDesArrets().initAll() // initialisation totale des arrêts
-        printArrets(testarrets: arretsGlobal)
+        gArrets = ListeDesArrets().initAll() // initialisation totale des arrêts
+//        printArrets(testarrets: arretsGlobal)
 /*
         var j : Double
         var k : Double

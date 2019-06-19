@@ -46,7 +46,7 @@ class Arret {
     }
     
     func isArretPrefere() -> Bool {
-        return (_nom == arretPrefere)
+        return (_nom == gArretPrefere)
     }
     
 /*

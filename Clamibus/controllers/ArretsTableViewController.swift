@@ -21,23 +21,27 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var enSemaineButton: UIButton!
     @IBOutlet weak var samediButton: UIButton!
     
-    var _gParametres = Parametres()
-
-//    private var _sensVersGare: Bool = false
-//    private var _samedi: Bool = false
-//    private var _tailleTexte: CGFloat = 0
-//    private var _expanded: Bool = false
-    
+    var _gParametres = Parametres()    
     var arrets: [Arret] = []
     var cellId = "Arret"
     let segueID = "Detail"
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        gArretSelected = arrets[indexPath.row]
+        print ("Select cell N° " + gArretSelected!.nom)
+    }
+
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        gArretSelected = nil
+        print ("Deselect cell")
+    }
+
     override func viewDidLoad() {
 //        timerFunc ()
         _gParametres.tailleTexte = CGFloat(UserDefaults.standard.integer(forKey: "TailleFont"))
         if _gParametres.tailleTexte < tailleMini {_gParametres.tailleTexte = tailleDefaut}
         if _gParametres.tailleTexte > tailleMaxi {_gParametres.tailleTexte = tailleDefaut}
-        arretPrefere = UserDefaults.standard.string(forKey: "Prefere") ?? ""
+        gArretPrefere = UserDefaults.standard.string(forKey: "Prefere") ?? ""
         let monCalendrier = Calendar.current
         let date = Date()                    // maintenant
 // pour debug
@@ -53,7 +57,7 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
             print("on est dimanche")
             alerteDimanche()
         }
-        print(aujourdhui)
+//        print(aujourdhui)
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
@@ -161,8 +165,8 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             annulePrefere = false
             titre = "Voulez vous choisir l'arret \(arret.nom) comme arrêt préféré ?"
-            if arretPrefere != "" {
-                titre += "\nIl remplacera \(arretPrefere)"
+            if gArretPrefere != "" {
+                titre += "\nIl remplacera \(gArretPrefere)"
             }
         }
         let alert = UIAlertController(title: titre, message: "", preferredStyle: .alert)
@@ -176,9 +180,9 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     func changeprefered(arret: Arret, supprime: Bool) {
         if supprime {
-            arretPrefere = ""
+            gArretPrefere = ""
         } else {
-            arretPrefere = arret.nom
+            gArretPrefere = arret.nom
         }
         SaveUserDefaults()
         tableView.reloadData()
@@ -260,7 +264,7 @@ class ArretsTableViewController: UIViewController, UITableViewDelegate, UITableV
 
     func SaveUserDefaults() {
         UserDefaults.standard.set(Int(_gParametres.tailleTexte), forKey: "TailleFont")
-        UserDefaults.standard.set(arretPrefere, forKey: "Prefere")
+        UserDefaults.standard.set(gArretPrefere, forKey: "Prefere")
         UserDefaults.standard.synchronize()
     }
     
