@@ -23,7 +23,6 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
-        addAnnotations()
         addMapClicked()
     }
 
@@ -40,6 +39,17 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
 //            print("setup Map par defaut")
         }
         SetupMap(coordonnees: premiere)
+        
+//        On pourrait optimiser si besoin en ne les enlevant et rajoutant pas si pas nécessaire
+        
+        // enlever les arrets précédents
+        mapView.removeAnnotations(mapView.annotations)
+
+        // mettre les arrêts correspondant au bon sens
+        addAnnotations()
+        
+        // tracer les traits ici dans MapView
+        
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -97,9 +107,18 @@ class CarteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
 
     func addAnnotations() {
-        for arret in gArrets {
-            let annotation = MonAnnotation(arret)
-            mapView.addAnnotation(annotation)
+        if gVersGare {
+            print ("arrets vers Gare")
+            for arret in gArretsVersGare {
+                let annotation = MonAnnotation(arret)
+                mapView.addAnnotation(annotation)
+            }
+        } else {
+            print ("arrets vers Petit clamart")
+            for arret in gArretsVersPetitClamart {
+                let annotation = MonAnnotation(arret)
+                mapView.addAnnotation(annotation)
+            }
         }
     }
     

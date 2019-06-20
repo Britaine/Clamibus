@@ -13,19 +13,16 @@ class ArretViewCell: UITableViewCell {
     @IBOutlet weak var AfficheArret: UILabel!
 
     var arret : Arret!
-//    var _parametres = Parametres()
 
     func setupCell(arret: Arret, parametres: Parametres) {
-//        func setupCell(_ arret: Arret,sens: Bool, jour: Bool, taille: CGFloat) {
        
         var attributes = [NSAttributedString.Key : Any]()
         var strNom = ""
         var strHoraires = ""
 
-//        _parametres = parametres
         if parametres.expanded {
             strNom = arret.nom + " : "
-            strHoraires = arret.purTexteHoraires(sens: parametres.versGare, jour: parametres.samedi)
+            strHoraires = arret.purTexteHoraires(sens: gVersGare, jour: parametres.samedi)
         } else {
             strNom = arret.nom
         }

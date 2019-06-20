@@ -21,6 +21,7 @@ class ListeDesArrets {
         var horairesVersGareSamedi: [Horaire]
         var horairesVersPetitClamartSamedi: [Horaire]
         var horairesVersPetitClamartSemaine: [Horaire]
+        var unArret: Arret
 
         horairesVersGareSemaine = []
         horairesVersGareSemaine.append(Horaire(heure: 8, minute: 42))
@@ -76,7 +77,7 @@ class ListeDesArrets {
         horairesVersPetitClamartSamedi.append(Horaire(heure: 17, minute: 00))
         horairesVersPetitClamartSamedi.append(Horaire(heure: 17, minute: 45))
         
-        arrets.append(Arret(
+        unArret = Arret(
             nom: "Gare de Clamart",
             arretVersGare: true,
             arretVersPetitclamart: true,
@@ -86,8 +87,8 @@ class ListeDesArrets {
             horaireVersGareSamedi: horairesVersGareSamedi,
             horaireVersPetitClamartSemaine: horairesVersPetitClamartSemaine,
             horaireVersPetitClamartSamedi: horairesVersPetitClamartSamedi
-            )
         )
+        arrets.append(unArret)
         
         horairesVersPetitClamartSemaine = []
         horairesVersPetitClamartSemaine.append(Horaire(heure: 8, minute: 47))

@@ -10,26 +10,26 @@ import UIKit
 
 // Variables globales
 var gArrets: [Arret] = []
+var gArretsVersGare: [Arret] = []
+var gArretsVersPetitClamart: [Arret] = []
 var gArretPrefere : String = ""
 var gArretSelected : Arret? = nil
+var gVersGare: Bool = false
 //
 
 // une classe pour regrouper les parametres de l'appli
 class Parametres {
-    var versGare: Bool
     var samedi: Bool
     var expanded: Bool
     var tailleTexte : CGFloat
-    
+
     init() {
-        versGare = false
         samedi = false
         expanded = false
         tailleTexte = 0
     }
-    
-    init(versGare: Bool,samedi: Bool,taille: CGFloat, expanded: Bool) {
-        self.versGare = versGare
+
+    init(samedi: Bool,taille: CGFloat, expanded: Bool) {
         self.samedi = samedi
         self.expanded = expanded
         self.tailleTexte = taille
@@ -48,17 +48,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ordre de gare vers petit Clamart
         // avec tous les horaires
         gArrets = ListeDesArrets().initAll() // initialisation totale des arrêts
-//        printArrets(testarrets: arretsGlobal)
-/*
-        var j : Double
-        var k : Double
-        for i in 0...1000000 {
-            j = Double(i) * Double(i)
-            k = j/2
-            j = k/2
-            print(j)
-        }
-*/
+        gInitTableVersGare()
+        gInitTableVersPetitClamart()
+        print("Liste de tous les arrêts\n\n")
+        printArrets(testarrets: gArrets)
+        print("Liste des arrêts sens vers la gare\n\n")
+        printArrets(testarrets: gArretsVersGare)
+        print("Liste des arrêts sens vers le Petit Clamart\n\n")
+        printArrets(testarrets: gArretsVersPetitClamart)
+
         return true
     }
 
@@ -84,8 +82,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
+
+func gInitTableVersGare() {
+    
+    var arret: Arret
+    
+    print("init vers gare ")
+    gArretsVersGare = []
+    var i = gArrets.count-1
+    while i>=0 {
+        arret=gArrets[i]
+        if arret.dessertVersGare {gArretsVersGare.append(arret)}
+        i-=1
+    }
+}
+
+func gInitTableVersPetitClamart() {
+    
+    print("init vers Petit Clamart ")
+    gArretsVersPetitClamart = []
+    for arret in gArrets {
+        if arret.dessertVersPetitClamart {gArretsVersPetitClamart.append(arret)}
+    }
+}
+
 
 func printArrets(testarrets: [Arret])  {
     

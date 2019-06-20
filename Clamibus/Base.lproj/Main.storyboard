@@ -239,7 +239,7 @@ Gare</string>
                                     <navigationItem id="JFK-5Z-F0u">
                                         <nil key="title"/>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Mx0-LQ-GJf">
-                                            <rect key="frame" x="30" y="7.5" width="280" height="29"/>
+                                            <rect key="frame" x="46" y="7.5" width="280" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="standard"/>
